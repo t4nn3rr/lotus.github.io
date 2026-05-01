@@ -6,7 +6,336 @@
 <title>Order of the White Lotus — MCVerse</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border<!DOCTYPE html>
+<html lang="en" style="background:#080808">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>Order of the White Lotus — MCVerse</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+html,body{background:#080808}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#f5f2ec;
+  --white-dim:rgba(245,242,236,0.6);
+  --white-faint:rgba(245,242,236,0.08);
+  --white-border:rgba(245,242,236,0.12);
+  --white-border-strong:rgba(245,242,236,0.28);
+  --black:#080808;
+  --black-mid:#0e0e0e;
+  --black-card:#111111;
+  --black-hover:#161616;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:0.5px solid var(--white-border)}
+.nav-logo{display:flex;align-items:center;gap:0.75rem}
+.nav-logo img{width:28px;height:28px;opacity:0.9;filter:invert(0)}
+.nav-logo-text{font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.22em;color:var(--white);opacity:0.7;text-transform:uppercase}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,242,236,0.4);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--white)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:8rem 2rem 5rem;overflow:hidden}
+.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.4;pointer-events:none}
+.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,transparent 40%,rgba(8,8,8,0.7) 100%);pointer-events:none}
+.hero-logo{width:160px;height:160px;margin:0 auto 2.5rem;position:relative;animation:fadeUp 1.2s ease both}
+.hero-logo img{width:100%;height:100%;object-fit:contain;filter:brightness(1.05)}
+.hero-logo::before{content:'';position:absolute;inset:-16px;border-radius:50%;border:0.5px solid var(--white-border)}
+.hero-logo::after{content:'';position:absolute;inset:-28px;border-radius:50%;border:0.5px solid rgba(245,242,236,0.05)}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(245,242,236,0.35);margin-bottom:1.2rem;animation:fadeUp 1.2s 0.1s ease both}
+h1{font-family:'Cinzel',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:600;letter-spacing:0.04em;line-height:1.05;color:var(--white);margin-bottom:1.8rem;animation:fadeUp 1.2s 0.2s ease both}
+h1 em{font-style:normal;opacity:0.45;display:block;font-size:0.6em;letter-spacing:0.15em;margin-top:0.3em;font-weight:400}
+.hero-sub{max-width:480px;font-size:1.15rem;color:var(--white-dim);font-style:italic;margin-bottom:3rem;letter-spacing:0.01em;animation:fadeUp 1.2s 0.3s ease both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp 1.2s 0.4s ease both}
+.btn-primary{padding:0.8rem 2.2rem;background:var(--white);color:var(--black);font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.25s,transform 0.2s}
+.btn-primary:hover{opacity:0.88;transform:translateY(-2px)}
+.btn-ghost{padding:0.8rem 2.2rem;background:transparent;color:var(--white);font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;border:0.5px solid var(--white-border-strong);cursor:pointer;transition:border-color 0.25s,transform 0.2s}
+.btn-ghost:hover{border-color:var(--white);transform:translateY(-2px)}
+.hero-rule{width:1px;height:80px;background:linear-gradient(to bottom,transparent,var(--white-border-strong),transparent);margin:4rem auto 0;animation:fadeUp 1.2s 0.6s ease both}
+.hero-stats{display:flex;gap:5rem;margin-top:3rem;animation:fadeUp 1.2s 0.5s ease both}
+.stat{text-align:center}
+.stat-num{font-family:'Cinzel',serif;font-size:2rem;font-weight:600;color:var(--white);display:block;letter-spacing:0.05em}
+.stat-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-top:0.25rem;display:block}
+
+/* SECTIONS */
+section{padding:8rem 2rem;position:relative}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(245,242,236,0.3);margin-bottom:1rem;display:block}
+h2{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3vw,2.6rem);font-weight:600;color:var(--white);margin-bottom:0.75rem;letter-spacing:0.03em}
+.section-desc{color:var(--white-dim);font-style:italic;font-size:1.1rem;margin-bottom:4rem}
+.divider{width:40px;height:0.5px;background:var(--white-border-strong);margin:1.5rem 0 3rem}
+
+/* ABOUT */
+#about{background:var(--black-mid)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.about-body{font-size:1.05rem;color:var(--white-dim);line-height:1.9}
+.about-body p+p{margin-top:1.2rem}
+.tenet{border-left:0.5px solid var(--white-border-strong);padding-left:1.5rem;margin-bottom:2rem}
+.tenet-title{font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin-bottom:0.4rem;opacity:0.7}
+.tenet p{font-size:0.95rem;color:rgba(245,242,236,0.45);line-height:1.7}
+
+/* RANKS */
+#ranks{background:var(--black)}
+.rank-header{margin-bottom:3.5rem}
+.track-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,242,236,0.25);margin-bottom:1rem}
+.rank-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5px;background:var(--white-border);border:0.5px solid var(--white-border);margin-bottom:0.5px}
+.rank-row.specialist{grid-template-columns:repeat(3,1fr)}
+.rank-card{background:var(--black-card);padding:2rem 1.5rem;transition:background 0.3s;position:relative;overflow:hidden}
+.rank-card:hover{background:var(--black-hover)}
+.rank-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--white);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.rank-card:hover::after{transform:scaleX(1)}
+.rank-icon-wrap{width:42px;height:42px;border:0.5px solid var(--white-border);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.rank-img{width:24px;height:24px;object-fit:contain}
+.rank-tier{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(245,242,236,0.28);margin-bottom:0.3rem}
+.rank-name{font-family:'Cinzel',serif;font-size:0.88rem;color:var(--white);letter-spacing:0.06em;margin-bottom:0.6rem}
+.rank-desc{font-size:0.9rem;color:rgba(245,242,236,0.4);line-height:1.6}
+.rank-badge{display:inline-block;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;padding:3px 8px;border:0.5px solid var(--white-border-strong);color:var(--white);opacity:0.6;margin-bottom:1rem}
+
+/* POLICY */
+#policy{background:var(--black-mid)}
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.policy-card{border:0.5px solid var(--white-border);padding:2rem;transition:border-color 0.3s,background 0.3s}
+.policy-card:hover{border-color:var(--white-border-strong);background:var(--white-faint)}
+.policy-num{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.3em;color:rgba(245,242,236,0.2);margin-bottom:1rem}
+.policy-title{font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.1em;color:var(--white);margin-bottom:0.6rem;opacity:0.8}
+.policy-text{font-size:0.95rem;color:rgba(245,242,236,0.45);line-height:1.75}
+
+/* CTA */
+.cta{text-align:center;padding:10rem 2rem;background:var(--black);position:relative;overflow:hidden}
+.cta-logo{width:100px;height:100px;margin:0 auto 3rem;opacity:0.08;filter:invert(1)}
+.cta-logo-fg{position:absolute;top:10rem;left:50%;transform:translateX(-50%);width:100px;height:100px;opacity:0.06}
+.cta h2{margin-bottom:1rem}
+.cta p{color:var(--white-dim);font-style:italic;font-size:1.1rem;max-width:440px;margin:0 auto 2.5rem}
+
+/* FOOTER */
+footer{border-top:0.5px solid var(--white-border);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-left{display:flex;align-items:center;gap:0.75rem}
+.footer-left img{width:22px;height:22px;opacity:0.35}
+.footer-text{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.18em;color:rgba(245,242,236,0.25)}
+.footer-right{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:rgba(245,242,236,0.18)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="logo.png" alt="White Lotus">
+    <span class="nav-logo-text">Order of the White Lotus</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#ranks">Ranks</a></li>
+    <li><a href="#policy">Policy</a></li>
+    <li><a href="#join">Join</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-vignette"></div>
+
+  <div class="hero-logo">
+    <img src="logo.png" alt="Order of the White Lotus">
+  </div>
+
+  <div class="hero-eyebrow">MCVerse · Est. 2026</div>
+  <h1>Order of the White Lotus<em>A fellowship above all others</em></h1>
+  <p class="hero-sub">We do not recruit. We select. An exclusive brotherhood of builders, leaders, and craftspeople — united by excellence.</p>
+
+  <div class="hero-btns">
+    <a href="#join" class="btn-primary">Seek Entry</a>
+    <a href="#about" class="btn-ghost">Our Ethos</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">3–5</span>
+      <span class="stat-label">Join Requests Weekly</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Grand Loti</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">#1</span>
+      <span class="stat-label">Most Desired Clan</span>
+    </div>
+  </div>
+  <div class="hero-rule"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner about-grid">
+    <div class="reveal">
+      <span class="section-label">Who We Are</span>
+      <h2>Built on Craft.<br>Bound by Honor.</h2>
+      <div class="divider"></div>
+      <div class="about-body">
+        <p>The Order of the White Lotus is the most sought-after clan on MCVerse. A few months old, yet already the standard every other clan is measured against. We are builders, stewards, and leaders — people who take pride in their work and show up for one another.</p>
+        <p>Membership here is not a title. It is a commitment. To the community, to the craft, and to something larger than any single build or battle.</p>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="tenet"><div class="tenet-title">Craft</div><p>Every contribution matters — from grand clan builds to quietly restocking shared storage for a clanmate you've never met.</p></div>
+      <div class="tenet"><div class="tenet-title">Community</div><p>No member should feel peripheral. We actively draw everyone in, especially those outside the main projects.</p></div>
+      <div class="tenet"><div class="tenet-title">Continuity</div><p>Those who leave are welcomed back at the rank they earned. We hold no grudges — only rosters.</p></div>
+      <div class="tenet"><div class="tenet-title">Leadership</div><p>The Grand Loti govern by quorum. No single voice rules. Every major decision requires consensus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RANKS -->
+<section id="ranks">
+  <div class="section-inner">
+    <div class="rank-header reveal">
+      <span class="section-label">Hierarchy</span>
+      <h2>The Rank Structure</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Climb the main track, or earn your place through mastery of a specialist role. Every path is honourable.</p>
+    </div>
+
+    <div class="track-label reveal">Main Track — Disciple to Grand Lotus</div>
+    <div class="rank-row reveal">
+      <div class="rank-card">
+        <div class="rank-icon-wrap"><img class="rank-img" src="logo.png" alt=""></div>
+        <div class="rank-tier">Leadership</div>
+        <div class="rank-name">Grand Lotus</div>
+        <div class="rank-desc">The governing council. Decisions require quorum of at least two. The highest honour any member can attain.</div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon-wrap" style="border-color:rgba(245,242,236,0.08)"><img class="rank-img" src="logo.png" alt="" style="opacity:0.6"></div>
+        <div class="rank-tier">Senior</div>
+        <div class="rank-name">Crescent Lotus</div>
+        <div class="rank-desc">Second highest. Trusted veterans who embody the Order's values and serve as pillars of the community.</div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon-wrap" style="border-color:rgba(245,242,236,0.06)"><img class="rank-img" src="logo.png" alt="" style="opacity:0.4"></div>
+        <div class="rank-tier">Established</div>
+        <div class="rank-name">Lotus Sentry</div>
+        <div class="rank-desc">Core members of the Order. Proven contributors recognised for consistent, meaningful service.</div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon-wrap" style="border-color:rgba(245,242,236,0.05)"><img class="rank-img" src="logo.png" alt="" style="opacity:0.25"></div>
+        <div class="rank-tier">Entry</div>
+        <div class="rank-name">Lotus Disciple</div>
+        <div class="rank-desc">New members finding their footing within the Order. The beginning of the journey.</div>
+      </div>
+    </div>
+
+    <div class="track-label reveal" style="margin-top:2.5rem">Specialist Roles — Expertise Without Rank</div>
+    <div class="rank-row specialist reveal">
+      <div class="rank-card">
+        <div class="rank-badge">Specialist</div>
+        <div class="rank-name">Lotus Quarterwarden</div>
+        <div class="rank-desc">Stewards of clan resources, storage, and logistics. The backbone that keeps the Order running.</div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-badge">Specialist</div>
+        <div class="rank-name">Lotus Sensei</div>
+        <div class="rank-desc">Guides and mentors. They welcome new disciples and pass down the knowledge of the Order.</div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-badge">Specialist</div>
+        <div class="rank-name">Lotus Scholar</div>
+        <div class="rank-desc">Keepers of lore, history, and strategy. Knowledge is their weapon and their gift to the clan.</div>
+      </div>
+    </div>
+    <p class="reveal" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:rgba(245,242,236,0.2);margin-top:1rem">Any member may hold a specialist role. They exist alongside, not above, the main track.</p>
+  </div>
+</section>
+
+<!-- POLICY -->
+<section id="policy">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Governance</span>
+      <h2>How We Run</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Clear, fair rules that protect the community and reward dedication.</p>
+    </div>
+
+    <div class="policy-grid">
+      <div class="policy-card reveal">
+        <div class="policy-num">01</div>
+        <div class="policy-title">Inactivity Policy</div>
+        <p class="policy-text">Up to 30 days of unannounced inactivity is permitted at any rank. After that, council reaches out. Announced absences of any length are always fine — life happens, and we respect that.</p>
+      </div>
+      <div class="policy-card reveal reveal-delay-1">
+        <div class="policy-num">02</div>
+        <div class="policy-title">Council Quorum</div>
+        <p class="policy-text">Major decisions require at minimum 2 Grand Loti and 2 other members. A fifth is added when possible to break ties. Discord polls serve when in-person quorum cannot be met.</p>
+      </div>
+      <div class="policy-card reveal reveal-delay-2">
+        <div class="policy-num">03</div>
+        <div class="policy-title">Open Return Policy</div>
+        <p class="policy-text">Anyone removed for inactivity is welcome back when they return — likely restored to the rank they left. We carry no grudges. The door is always open.</p>
+      </div>
+      <div class="policy-card reveal">
+        <div class="policy-num">04</div>
+        <div class="policy-title">Contribution Points</div>
+        <p class="policy-text">A clan point system is in development. Building, farming, stocking storage, landscaping, and unique contributions all earn recognition. Top contributors are honoured monthly with prizes and clout.</p>
+      </div>
+      <div class="policy-card reveal reveal-delay-1">
+        <div class="policy-num">05</div>
+        <div class="policy-title">Selective Membership</div>
+        <p class="policy-text">We receive 3–5 join requests every single week. Every applicant is vetted with clan input. Exclusivity is not arrogance — it is what makes belonging here mean something.</p>
+      </div>
+      <div class="policy-card reveal reveal-delay-2">
+        <div class="policy-num">06</div>
+        <div class="policy-title">Path to Grand Lotus</div>
+        <p class="policy-text">Any member may become Grand Lotus. No rigid formula — contribute meaningfully, represent the clan well across the server, take ownership, and lead. The rest follows naturally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="cta">
+  <img class="cta-logo" src="logo.png" alt="">
+  <div style="position:relative">
+    <span class="section-label" style="display:block;text-align:center">Membership</span>
+    <h2 class="reveal">Ready to Seek Entry?</h2>
+    <p class="reveal">The Order does not recruit. If you believe you belong here, make yourself known on the MCVerse forums or reach out to a Grand Lotus directly.</p>
+    <div class="hero-btns reveal">
+      <a href="https://MCVerse.City" class="btn-primary">MCVerse Forums</a>
+      <a href="#about" class="btn-ghost">Our Ethos</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <img src="logo.png" alt="Logo">
+    <span class="footer-text">Order of the White Lotus · MCVerse.City</span>
+  </div>
+  <div class="footer-right">Est. 2026 · An exclusive MCVerse fellowship</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
+-box; margin: 0; padding: 0; }
 
   :root {<!DOCTYPE html>
 <html lang="en">
